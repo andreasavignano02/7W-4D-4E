@@ -1,10 +1,10 @@
 async function displayjson() {
     let listajson = await fetch ('http://localhost:3000/')
     let testojson = await listajson.json()
-    let test = JSON.parse(testojson)
-    document.querySelector('body').innerHTML = test.name 
+    for (let i = 0 ; i < testojson.length; i++){
+    document.getElementById('testo').innerHTML += testojson[i].name
+    }
 }
-
-window.onload = () => {
-    displayjson()
+window.onload = async() => {
+    await displayjson()
 }
